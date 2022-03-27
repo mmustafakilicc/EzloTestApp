@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -72,6 +73,10 @@ public class DeviceDetailFragment extends Fragment {
     private void bindActions(GlobalEnums.ActionClick actionClick) {
         if (actionClick != GlobalEnums.ActionClick.INACTIVE) {//save or cancel clicked?
             if (actionClick == GlobalEnums.ActionClick.SAVE) {
+                if (binding.editTextDDFName.getText().length() <= 0) {
+                    Toast.makeText(requireContext(), getString(R.string.device_length_warning), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 binding.getDevice().setName(binding.editTextDDFName.getText().toString());
             }
             requireActivity().onBackPressed();

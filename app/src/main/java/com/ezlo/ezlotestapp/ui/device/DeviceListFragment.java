@@ -25,7 +25,6 @@ import com.ezlo.ezlotestapp.ui.device.adapter.DeviceListAdapter;
 import com.ezlo.ezlotestapp.utils.helper.DeviceListSwipeHelper;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -40,7 +39,8 @@ public class DeviceListFragment extends Fragment {
     private NavController navController;
     private DeviceListAdapter adapter;
 
-    public DeviceListFragment() { }
+    public DeviceListFragment() {
+    }
 
     @Nullable
     @Override
@@ -66,7 +66,6 @@ public class DeviceListFragment extends Fragment {
 
     private void showDeviceList(List<Device> devices) {
 
-        Collections.sort(devices);
         adapter = new DeviceListAdapter(devices);
         adapter.addDeviceClickListener(device -> showDeviceDetail(device, false));
         adapter.addDeviceLongClickListener(this::showDeleteWarning);

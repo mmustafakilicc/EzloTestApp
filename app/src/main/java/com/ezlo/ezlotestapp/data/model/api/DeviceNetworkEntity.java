@@ -1,10 +1,11 @@
 package com.ezlo.ezlotestapp.data.model.api;
 
+import com.ezlo.ezlotestapp.data.model.view.Device;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
-public class DeviceNetworkEntity {
+public class DeviceNetworkEntity implements Comparable<DeviceNetworkEntity>{
 
     @SerializedName("PK_Device")
     private long pkDevice;
@@ -125,5 +126,13 @@ public class DeviceNetworkEntity {
 
     public void setPlatform(String platform) {
         this.platform = platform;
+    }
+
+    @Override
+    public int compareTo(DeviceNetworkEntity device) {
+        if(device.getPkDevice() >= this.getPkDevice()){
+            return -1;
+        }
+        return 1;
     }
 }

@@ -7,4 +7,5 @@
     <string name="delete_device_q">Device %1s will be deleted from list. Continue?</string>
     <string name="edit">Edit</string>
     <string name="save">Save</string>
+    <string name="device_length_warning">Device name can not be empty!</string>
 </resources>
