@@ -21,6 +21,9 @@ public class DeviceListSwipeHelper extends ItemTouchHelper.SimpleCallback {
 
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
+        deviceListAdapter.hideOptions();
+        if(direction == ItemTouchHelper.LEFT){
+            deviceListAdapter.showOptions(viewHolder.getAdapterPosition());
+        }
     }
 }

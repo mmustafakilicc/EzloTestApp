@@ -21,4 +21,18 @@ public class GlobalEnums {
     public enum Platform {
 
     }
+
+    public enum ActionClick{
+        SAVE(1),
+        CANCEL(2),
+        INACTIVE(3);
+        private final int value;
+        ActionClick(int value){
+            this.value = value;
+        }
+
+        public int getValue(){
+            return value;
+        }
+    }
 }

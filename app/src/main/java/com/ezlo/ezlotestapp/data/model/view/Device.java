@@ -20,6 +20,8 @@ public class Device implements Comparable<Device> {
 
     private boolean editable;
 
+    private boolean swipeVisible;
+
     public String getName() {
         return name;
     }
@@ -95,5 +97,13 @@ public class Device implements Comparable<Device> {
 
     public void setEditable(boolean editable) {
         this.editable = editable;
+    }
+
+    public boolean isSwipeVisible() {
+        return swipeVisible;
+    }
+
+    public void setSwipeVisible(boolean swipeVisible) {
+        this.swipeVisible = swipeVisible;
     }
 }

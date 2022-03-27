@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel;
 import com.ezlo.ezlotestapp.data.model.api.DeviceListResponse;
 import com.ezlo.ezlotestapp.data.model.view.Device;
 import com.ezlo.ezlotestapp.data.remote.repository.DeviceRepository;
+import com.ezlo.ezlotestapp.utils.GlobalEnums;
 import com.ezlo.ezlotestapp.utils.mapper.DeviceMapper;
 
 import java.util.List;
@@ -30,7 +31,6 @@ public class DeviceViewModel extends ViewModel {
     }
 
     private MutableLiveData<List<Device>> liveDataDeviceList;
-
     public MutableLiveData<List<Device>> getLiveDataDeviceList() {
         if (liveDataDeviceList == null) {
             liveDataDeviceList = new MutableLiveData<>();
@@ -40,7 +40,6 @@ public class DeviceViewModel extends ViewModel {
     }
 
     private MutableLiveData<Device> liveDataSelectedDevice;
-
     public MutableLiveData<Device> getLiveDataSelectedDevice() {
         if (liveDataSelectedDevice == null) {
             liveDataSelectedDevice = new MutableLiveData<>();
@@ -53,7 +52,6 @@ public class DeviceViewModel extends ViewModel {
     }
 
     private MutableLiveData<Boolean> liveDataEdit;
-
     public MutableLiveData<Boolean> getLiveDataEdit() {
         if (liveDataEdit == null) {
             liveDataEdit = new MutableLiveData<>();
@@ -61,13 +59,27 @@ public class DeviceViewModel extends ViewModel {
         return liveDataEdit;
     }
 
-    private MutableLiveData<Boolean> liveDataIsLoading;
+    public void setEditable(boolean isEditable){
+        getLiveDataEdit().setValue(isEditable);
+    }
 
+    private MutableLiveData<Boolean> liveDataIsLoading;
     public MutableLiveData<Boolean> getLiveDataIsLoading() {
         if (liveDataIsLoading == null) {
             liveDataIsLoading = new MutableLiveData<>();
         }
         return liveDataIsLoading;
+    }
+
+    private MutableLiveData<GlobalEnums.ActionClick> liveDataActionClick;
+    public MutableLiveData<GlobalEnums.ActionClick> getLiveDataActionClick(){
+        if(liveDataActionClick == null){
+            liveDataActionClick = new MutableLiveData<>();
+        }
+        return liveDataActionClick;
+    }
+    public void setActionClick(GlobalEnums.ActionClick actionClick){
+        getLiveDataActionClick().setValue(actionClick);
     }
 
     private void loadDeviceList() {

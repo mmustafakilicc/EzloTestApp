@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 import com.ezlo.ezlotestapp.R;
 import com.ezlo.ezlotestapp.TestApplication;
@@ -21,6 +22,7 @@ import com.ezlo.ezlotestapp.data.model.view.Device;
 import com.ezlo.ezlotestapp.databinding.DeviceListFragmentBinding;
 import com.ezlo.ezlotestapp.di.module.viewmodel.ViewModelFactory;
 import com.ezlo.ezlotestapp.ui.device.adapter.DeviceListAdapter;
+import com.ezlo.ezlotestapp.utils.helper.DeviceListSwipeHelper;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Collections;
@@ -38,8 +40,7 @@ public class DeviceListFragment extends Fragment {
     private NavController navController;
     private DeviceListAdapter adapter;
 
-    public DeviceListFragment() {
-    }
+    public DeviceListFragment() { }
 
     @Nullable
     @Override
@@ -64,16 +65,26 @@ public class DeviceListFragment extends Fragment {
     }
 
     private void showDeviceList(List<Device> devices) {
+
         Collections.sort(devices);
         adapter = new DeviceListAdapter(devices);
-        adapter.addDeviceClickListener(device -> {
-            deviceViewModel.setSelectedDevice(device);
-            navController.navigate(R.id.action_deviceListFragment_to_deviceDetailFragment);
-        });
+        adapter.addDeviceClickListener(device -> showDeviceDetail(device, false));
         adapter.addDeviceLongClickListener(this::showDeleteWarning);
+        adapter.addEditListener(device -> showDeviceDetail(device, true));
+
         binding.recyclerViewDLF.setHasFixedSize(true);
         binding.recyclerViewDLF.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         binding.recyclerViewDLF.setAdapter(adapter);
+
+        DeviceListSwipeHelper deviceListSwipeHelper = new DeviceListSwipeHelper(adapter, 0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(deviceListSwipeHelper);
+        itemTouchHelper.attachToRecyclerView(binding.recyclerViewDLF);
+    }
+
+    private void showDeviceDetail(Device device, boolean isEditable) {
+        deviceViewModel.setSelectedDevice(device);
+        deviceViewModel.setEditable(isEditable);
+        navController.navigate(R.id.action_deviceListFragment_to_deviceDetailFragment);
     }
 
     private void bindLoading(Boolean isLoading) {
@@ -95,4 +106,5 @@ public class DeviceListFragment extends Fragment {
     private void deleteDevice(int position) {
         adapter.deleteItem(position);
     }
+
 }

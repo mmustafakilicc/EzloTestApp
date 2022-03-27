@@ -47,6 +47,7 @@
                 android:padding="10dp"/>
 
             <EditText
+                android:id="@+id/editTextDDFName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="name"
@@ -55,7 +56,11 @@
                 android:visibility="@{editable ? View.VISIBLE : View.GONE}"
                 tools:visibility="gone"
                 tools:ignore="LabelFor"
-                tools:text="@string/app_name" />
+                tools:text="@string/app_name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:padding="10dp">
+                <requestFocus/></EditText>
         </LinearLayout>
 
         <LinearLayout

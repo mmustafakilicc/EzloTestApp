@@ -8,11 +8,15 @@
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/circular_background.xml" value="0.175" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/divider_device_list.xml" value="0.175" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/ic_arrow_right_24.xml" value="0.175" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/ic_cancel_24.xml" value="0.175" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/ic_check_24.xml" value="0.175" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/ic_edit_24.xml" value="0.175" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/layout/activity_main.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/layout/device_detail_fragment.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/layout/device_list_fragment.xml" value="0.33240740740740743" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/layout/item_device_list.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/layout/item_swipe_menu.xml" value="0.2814814814814815" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/menu/action_menu.xml" value="0.2814814814814815" />
       </map>
     </option>
   </component>
