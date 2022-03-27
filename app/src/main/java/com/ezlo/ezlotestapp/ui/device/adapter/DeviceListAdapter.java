@@ -28,7 +28,7 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.De
     @NonNull
     @Override
     public DeviceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemDeviceListBinding binding = ItemDeviceListBinding.inflate(LayoutInflater.from(parent.getContext()));
+        ItemDeviceListBinding binding = ItemDeviceListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new DeviceViewHolder(binding);
     }
 
@@ -90,5 +90,9 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.De
     @BindingAdapter("android:src")
     public static void setImageSource(ImageView imageView, int resource){
         imageView.setImageResource(resource);
+    }
+
+    public void showEdit(){
+
     }
 }

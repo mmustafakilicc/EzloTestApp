@@ -10,17 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavBackStackEntry;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.ezlo.ezlotestapp.R;
 import com.ezlo.ezlotestapp.TestApplication;
 import com.ezlo.ezlotestapp.data.model.view.Device;
 import com.ezlo.ezlotestapp.databinding.DeviceDetailFragmentBinding;
-import com.ezlo.ezlotestapp.databinding.DeviceListFragmentBinding;
 import com.ezlo.ezlotestapp.di.module.viewmodel.ViewModelFactory;
 
 import javax.inject.Inject;
@@ -33,7 +28,6 @@ public class DeviceDetailFragment extends Fragment {
     private DeviceDetailFragmentBinding binding;
 
     public DeviceDetailFragment() {
-        super(R.layout.device_detail_fragment);
     }
 
     @Override
@@ -54,15 +48,15 @@ public class DeviceDetailFragment extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
-        ((TestApplication)requireActivity().getApplicationContext()).appComponent.inject(this);
+        ((TestApplication) requireActivity().getApplicationContext()).appComponent.inject(this);
         super.onAttach(context);
     }
 
-    private void bindDevice(Device device){
+    private void bindDevice(Device device) {
         binding.setDevice(device);
     }
 
-    private void bindEdit(Boolean editable){
+    private void bindEdit(Boolean editable) {
         binding.setEditable(editable != null && editable);
     }
 }

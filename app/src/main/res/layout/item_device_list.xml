@@ -13,13 +13,14 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/white"
         android:background="?attr/selectableItemBackground">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/imageViewDLIDevice"
@@ -27,6 +28,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/app_name"
                 android:src="@{device.resource}"
+                android:background="@drawable/background_rect_radius_grey_dark"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,10 +38,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@{device.name}"
+                app:layout_constraintBottom_toTopOf="@id/textViewDLISN"
                 app:layout_constraintEnd_toStartOf="@id/imageViewDLIArrow"
                 app:layout_constraintStart_toEndOf="@id/imageViewDLIDevice"
-                app:layout_constraintBottom_toTopOf="@id/textViewDLISN"
-                android:padding="5dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 tools:text="@string/app_name" />
 
             <TextView
@@ -47,11 +52,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@{device.sn}"
                 app:layout_constraintEnd_toStartOf="@id/imageViewDLIArrow"
                 app:layout_constraintStart_toEndOf="@id/imageViewDLIDevice"
                 app:layout_constraintTop_toBottomOf="@id/textViewDLIName"
-                android:padding="5dp"
                 tools:text="@string/app_name" />
 
             <ImageView
@@ -59,7 +65,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/ic_arrow_right_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

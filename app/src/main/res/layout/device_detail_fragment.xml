@@ -32,6 +32,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/app_name"
                 android:src="@{device.resource}"
+                android:background="@drawable/background_rect_radius_grey_dark"
                 tools:src="@drawable/ic_launcher_foreground" />
 
             <TextView
@@ -40,7 +41,10 @@
                 android:autofillHints="name"
                 android:text="@{device.name}"
                 android:visibility="@{editable ? View.GONE : View.VISIBLE}"
-                tools:text="@string/app_name" />
+                tools:text="@string/app_name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:padding="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"

@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 import com.ezlo.ezlotestapp.R;
 import com.ezlo.ezlotestapp.TestApplication;
@@ -70,6 +71,8 @@ public class DeviceListFragment extends Fragment {
             navController.navigate(R.id.action_deviceListFragment_to_deviceDetailFragment);
         });
         adapter.addDeviceLongClickListener(this::showDeleteWarning);
+        binding.recyclerViewDLF.setHasFixedSize(true);
+        binding.recyclerViewDLF.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         binding.recyclerViewDLF.setAdapter(adapter);
     }
 

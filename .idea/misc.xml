@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/background_circular_grey_dark.xml" value="0.175" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/background_rect_radius_grey_dark.xml" value="0.175" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/circular_background.xml" value="0.175" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/divider_device_list.xml" value="0.175" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/ic_arrow_right_24.xml" value="0.175" />
+        <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/drawable/ic_edit_24.xml" value="0.175" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/layout/activity_main.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/layout/device_detail_fragment.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/mmust/AndroidStudioProjects/EzloTestApp/app/src/main/res/layout/device_list_fragment.xml" value="0.33240740740740743" />
