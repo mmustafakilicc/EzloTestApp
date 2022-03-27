@@ -9,7 +9,8 @@ import com.ezlo.ezlotestapp.ui.device.adapter.DeviceListAdapter;
 public class DeviceListSwipeHelper extends ItemTouchHelper.SimpleCallback {
 
     private final DeviceListAdapter deviceListAdapter;
-    public DeviceListSwipeHelper(DeviceListAdapter deviceListAdapter, int dragDirs, int swipeDirs){
+
+    public DeviceListSwipeHelper(DeviceListAdapter deviceListAdapter, int dragDirs, int swipeDirs) {
         super(dragDirs, swipeDirs);
         this.deviceListAdapter = deviceListAdapter;
     }
@@ -22,8 +23,16 @@ public class DeviceListSwipeHelper extends ItemTouchHelper.SimpleCallback {
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
         deviceListAdapter.hideOptions();
-        if(direction == ItemTouchHelper.LEFT){
+        if (direction == ItemTouchHelper.LEFT) {
             deviceListAdapter.showOptions(viewHolder.getAdapterPosition());
         }
+    }
+
+    @Override
+    public int getSwipeDirs(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+        if (viewHolder instanceof DeviceListAdapter.DeviceViewHolder) return ItemTouchHelper.LEFT;
+        if (viewHolder instanceof DeviceListAdapter.SwipeOptionsViewHolder)
+            return ItemTouchHelper.RIGHT;
+        return super.getSwipeDirs(recyclerView, viewHolder);
     }
 }

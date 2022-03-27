@@ -77,7 +77,7 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     //region item controls
-    static class DeviceViewHolder extends RecyclerView.ViewHolder {
+    public static class DeviceViewHolder extends RecyclerView.ViewHolder {
         private final ItemDeviceListBinding binding;
 
         public DeviceViewHolder(@NonNull ItemDeviceListBinding binding) {
@@ -135,8 +135,8 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void addEditListener(EditButtonListener editButtonListener){
         this.editButtonListener = editButtonListener;
     }
-    static class SwipeOptionsViewHolder extends RecyclerView.ViewHolder{
-        private ItemSwipeMenuBinding binding;
+    public static class SwipeOptionsViewHolder extends RecyclerView.ViewHolder{
+        private final ItemSwipeMenuBinding binding;
         public SwipeOptionsViewHolder(@NonNull ItemSwipeMenuBinding binding){
             super(binding.getRoot());
             this.binding = binding;

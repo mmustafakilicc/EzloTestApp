@@ -76,7 +76,7 @@ public class DeviceListFragment extends Fragment {
         binding.recyclerViewDLF.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         binding.recyclerViewDLF.setAdapter(adapter);
 
-        DeviceListSwipeHelper deviceListSwipeHelper = new DeviceListSwipeHelper(adapter, 0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
+        DeviceListSwipeHelper deviceListSwipeHelper = new DeviceListSwipeHelper(adapter, 0, ItemTouchHelper.LEFT);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(deviceListSwipeHelper);
         itemTouchHelper.attachToRecyclerView(binding.recyclerViewDLF);
     }

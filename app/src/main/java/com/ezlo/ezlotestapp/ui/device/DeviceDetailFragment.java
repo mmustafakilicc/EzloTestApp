@@ -78,14 +78,11 @@ public class DeviceDetailFragment extends Fragment {
     }
 
     private void bindActions(GlobalEnums.ActionClick actionClick){
-        if(actionClick == GlobalEnums.ActionClick.SAVE){
-            binding.getDevice().setName(binding.editTextDDFName.getText().toString());
-            deviceViewModel.setEditable(false);
-            navController.navigate(R.id.action_deviceDetailFragment_to_deviceListFragment);
-        }else if(actionClick == GlobalEnums.ActionClick.CANCEL){
-            navController.navigate(R.id.action_deviceDetailFragment_to_deviceListFragment);
-            deviceViewModel.setActionClick(GlobalEnums.ActionClick.INACTIVE);
-            deviceViewModel.setEditable(false);
+        if(actionClick != GlobalEnums.ActionClick.INACTIVE){
+            if(actionClick == GlobalEnums.ActionClick.SAVE){
+                binding.getDevice().setName(binding.editTextDDFName.getText().toString());
+            }
+            requireActivity().onBackPressed();
         }
     }
 }
