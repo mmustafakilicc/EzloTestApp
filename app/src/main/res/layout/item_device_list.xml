@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="device"
+            type="com.ezlo.ezlotestapp.data.model.view.Device" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="?attr/selectableItemBackground">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/imageViewDLIDevice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/app_name"
+                android:src="@{device.resource}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewDLIName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{device.name}"
+                app:layout_constraintEnd_toStartOf="@id/imageViewDLIArrow"
+                app:layout_constraintStart_toEndOf="@id/imageViewDLIDevice"
+                app:layout_constraintBottom_toTopOf="@id/textViewDLISN"
+                android:padding="5dp"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/textViewDLISN"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{device.sn}"
+                app:layout_constraintEnd_toStartOf="@id/imageViewDLIArrow"
+                app:layout_constraintStart_toEndOf="@id/imageViewDLIDevice"
+                app:layout_constraintTop_toBottomOf="@id/textViewDLIName"
+                android:padding="5dp"
+                tools:text="@string/app_name" />
+
+            <ImageView
+                android:id="@+id/imageViewDLIArrow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_launcher_foreground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

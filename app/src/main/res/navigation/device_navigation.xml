@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/device_navigation"
+    app:startDestination="@id/deviceListFragment">
+
+    <fragment
+        android:id="@+id/deviceListFragment"
+        android:name="com.ezlo.ezlotestapp.ui.device.DeviceListFragment"
+        android:label="DeviceListFragment">
+        <action
+            android:id="@+id/action_deviceListFragment_to_deviceDetailFragment"
+            app:destination="@id/deviceDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deviceDetailFragment"
+        android:name="com.ezlo.ezlotestapp.ui.device.DeviceDetailFragment"
+        android:label="DeviceDetailFragment" />
+
+</navigation>

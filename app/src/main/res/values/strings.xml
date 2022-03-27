@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EzloTestApp</string>
+    <string name="my_name">Mustafa Kılıç</string>
+    <string name="user_img">user_img</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_device_q">Device %1s will be deleted from list. Continue?</string>
+</resources>

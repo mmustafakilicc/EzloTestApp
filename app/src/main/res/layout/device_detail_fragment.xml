@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="device"
+            type="com.ezlo.ezlotestapp.data.model.view.Device" />
+        <variable
+            name="editable"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/app_name"
+                android:src="@{device.resource}"
+                tools:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:text="@{device.name}"
+                android:visibility="@{editable ? View.GONE : View.VISIBLE}"
+                tools:text="@string/app_name" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:inputType="text"
+                android:text="@{device.name}"
+                android:visibility="@{editable ? View.VISIBLE : View.GONE}"
+                tools:visibility="gone"
+                tools:ignore="LabelFor"
+                tools:text="@string/app_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`SN : ` + device.sn}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`MAC Address : ` + device.macAddress}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="@string/app_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Firmware : ` + device.firmWare}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Model : ` + device.model}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="@string/app_name" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
