@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         initialize();
     }
 
+    //action is used for saving name changes
     private void initialize() {
         deviceViewModel = new ViewModelProvider(this, viewModelFactory).get(DeviceViewModel.class);
         deviceViewModel.getLiveDataEdit().observe(this, this::controlEditMode);
@@ -79,16 +80,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.actionSave:
-                deviceViewModel.setActionClick(GlobalEnums.ActionClick.SAVE);
+                deviceViewModel.setActionClick(GlobalEnums.ActionClick.SAVE);//send data to device detail fragment
                 return true;
             case R.id.actionCancel:
-                deviceViewModel.setActionClick(GlobalEnums.ActionClick.CANCEL);
+                deviceViewModel.setActionClick(GlobalEnums.ActionClick.CANCEL);//send data to device detail fragment
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
+    //if back button is used when device detail fragment is visible, set all data to the default values
     @Override
     public void onBackPressed() {
         deviceViewModel.setEditable(false);

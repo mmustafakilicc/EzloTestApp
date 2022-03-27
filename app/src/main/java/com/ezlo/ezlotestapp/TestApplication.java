@@ -12,7 +12,7 @@ public class TestApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        appComponent = DaggerAppComponent.builder()
+        appComponent = DaggerAppComponent.builder()//initialize dagger component
                 .build();
     }
 }

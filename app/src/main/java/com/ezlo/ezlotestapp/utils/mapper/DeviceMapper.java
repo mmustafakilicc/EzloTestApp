@@ -6,6 +6,7 @@ import com.ezlo.ezlotestapp.data.model.view.Device;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//converting network and view objects to each other
 public class DeviceMapper implements ModelMapper<DeviceNetworkEntity, Device> {
 
     @Override

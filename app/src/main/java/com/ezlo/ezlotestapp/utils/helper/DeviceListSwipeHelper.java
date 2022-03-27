@@ -28,6 +28,8 @@ public class DeviceListSwipeHelper extends ItemTouchHelper.SimpleCallback {
         }
     }
 
+    //if edit icon visible, prevent to swipe left
+    //otherwise, prevent swipe right
     @Override
     public int getSwipeDirs(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         if (viewHolder instanceof DeviceListAdapter.DeviceViewHolder) return ItemTouchHelper.LEFT;

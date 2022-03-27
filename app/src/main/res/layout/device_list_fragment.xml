@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:visibility="@{isLoading ? View.INVISIBLE : View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:nestedScrollingEnabled="false"
             tools:visibility="invisible" />
 
         <com.google.android.material.progressindicator.CircularProgressIndicator

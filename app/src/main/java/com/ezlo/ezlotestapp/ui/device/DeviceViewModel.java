@@ -21,6 +21,7 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
+//this view model will be used for sharing data between fragments nad main activity
 public class DeviceViewModel extends ViewModel {
 
     private final DeviceRepository deviceRepository;
@@ -30,6 +31,7 @@ public class DeviceViewModel extends ViewModel {
         this.deviceRepository = deviceRepository;
     }
 
+    //this is device list
     private MutableLiveData<List<Device>> liveDataDeviceList;
     public MutableLiveData<List<Device>> getLiveDataDeviceList() {
         if (liveDataDeviceList == null) {
@@ -39,6 +41,7 @@ public class DeviceViewModel extends ViewModel {
         return liveDataDeviceList;
     }
 
+    //which device is selected
     private MutableLiveData<Device> liveDataSelectedDevice;
     public MutableLiveData<Device> getLiveDataSelectedDevice() {
         if (liveDataSelectedDevice == null) {
@@ -51,6 +54,7 @@ public class DeviceViewModel extends ViewModel {
         getLiveDataSelectedDevice().setValue(device);
     }
 
+    //fragment is opened with edit mode or not
     private MutableLiveData<Boolean> liveDataEdit;
     public MutableLiveData<Boolean> getLiveDataEdit() {
         if (liveDataEdit == null) {
@@ -63,6 +67,7 @@ public class DeviceViewModel extends ViewModel {
         getLiveDataEdit().setValue(isEditable);
     }
 
+    //for content loading icon
     private MutableLiveData<Boolean> liveDataIsLoading;
     public MutableLiveData<Boolean> getLiveDataIsLoading() {
         if (liveDataIsLoading == null) {
@@ -71,6 +76,7 @@ public class DeviceViewModel extends ViewModel {
         return liveDataIsLoading;
     }
 
+    //to save or cancel for changes in edit mode
     private MutableLiveData<GlobalEnums.ActionClick> liveDataActionClick;
     public MutableLiveData<GlobalEnums.ActionClick> getLiveDataActionClick(){
         if(liveDataActionClick == null){
@@ -102,7 +108,7 @@ public class DeviceViewModel extends ViewModel {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.e("wqeqwe", "qweqweqw");
+                        Log.e("Api Error", e.getMessage());
                     }
 
                     @Override

@@ -81,6 +81,7 @@ public class DeviceListFragment extends Fragment {
         itemTouchHelper.attachToRecyclerView(binding.recyclerViewDLF);
     }
 
+    //navigate to detail fragment
     private void showDeviceDetail(Device device, boolean isEditable) {
         deviceViewModel.setSelectedDevice(device);
         deviceViewModel.setEditable(isEditable);

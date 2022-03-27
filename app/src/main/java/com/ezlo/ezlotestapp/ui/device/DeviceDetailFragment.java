@@ -5,17 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.ezlo.ezlotestapp.R;
 import com.ezlo.ezlotestapp.TestApplication;
@@ -32,9 +28,6 @@ public class DeviceDetailFragment extends Fragment {
     public ViewModelFactory viewModelFactory;
 
     private DeviceDetailFragmentBinding binding;
-    private NavController navController;
-
-    private DeviceViewModel deviceViewModel;
 
     public DeviceDetailFragment() {
     }
@@ -42,8 +35,7 @@ public class DeviceDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = NavHostFragment.findNavController(this);
-        deviceViewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(DeviceViewModel.class);
+        DeviceViewModel deviceViewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(DeviceViewModel.class);
         deviceViewModel.getLiveDataSelectedDevice().observe(getViewLifecycleOwner(), this::bindDevice);
         deviceViewModel.getLiveDataEdit().observe(getViewLifecycleOwner(), this::bindEdit);
         deviceViewModel.getLiveDataActionClick().observe(getViewLifecycleOwner(), this::bindActions);
@@ -68,7 +60,7 @@ public class DeviceDetailFragment extends Fragment {
     }
 
     private void bindEdit(Boolean editable) {
-        if(editable != null && editable){
+        if (editable != null && editable) {//edit mode is active . force to open keyboard
             ((InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(
                     InputMethodManager.SHOW_FORCED,
                     InputMethodManager.HIDE_IMPLICIT_ONLY
@@ -77,9 +69,9 @@ public class DeviceDetailFragment extends Fragment {
         binding.setEditable(editable != null && editable);
     }
 
-    private void bindActions(GlobalEnums.ActionClick actionClick){
-        if(actionClick != GlobalEnums.ActionClick.INACTIVE){
-            if(actionClick == GlobalEnums.ActionClick.SAVE){
+    private void bindActions(GlobalEnums.ActionClick actionClick) {
+        if (actionClick != GlobalEnums.ActionClick.INACTIVE) {//save or cancel clicked?
+            if (actionClick == GlobalEnums.ActionClick.SAVE) {
                 binding.getDevice().setName(binding.editTextDDFName.getText().toString());
             }
             requireActivity().onBackPressed();

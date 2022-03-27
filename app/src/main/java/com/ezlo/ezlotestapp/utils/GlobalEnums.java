@@ -22,10 +22,11 @@ public class GlobalEnums {
 
     }
 
+    //which action button is used
     public enum ActionClick{
         SAVE(1),
         CANCEL(2),
-        INACTIVE(3);
+        INACTIVE(3);//default mode
         private final int value;
         ActionClick(int value){
             this.value = value;

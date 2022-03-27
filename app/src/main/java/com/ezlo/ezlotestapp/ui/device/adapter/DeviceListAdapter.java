@@ -19,6 +19,7 @@ import java.util.List;
 
 public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    //for swipe view type
     private enum DeviceViewType{
         VIEW(1),
         EDIT(2);
@@ -77,6 +78,7 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     //region item controls
+    //to show devices
     public static class DeviceViewHolder extends RecyclerView.ViewHolder {
         private final ItemDeviceListBinding binding;
 
@@ -135,6 +137,8 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void addEditListener(EditButtonListener editButtonListener){
         this.editButtonListener = editButtonListener;
     }
+
+    //to show edit icon
     public static class SwipeOptionsViewHolder extends RecyclerView.ViewHolder{
         private final ItemSwipeMenuBinding binding;
         public SwipeOptionsViewHolder(@NonNull ItemSwipeMenuBinding binding){

@@ -16,10 +16,6 @@
     <fragment
         android:id="@+id/deviceDetailFragment"
         android:name="com.ezlo.ezlotestapp.ui.device.DeviceDetailFragment"
-        android:label="DeviceDetailFragment" >
-        <action
-            android:id="@+id/action_deviceDetailFragment_to_deviceListFragment"
-            app:destination="@id/deviceListFragment" />
-    </fragment>
+        android:label="DeviceDetailFragment" />
 
 </navigation>
